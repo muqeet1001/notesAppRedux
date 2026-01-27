@@ -1,34 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+
+    <div className="main w-full h-screen flex items-center justify-around gap-20">
+
+      <div className="l h-100  flex  justify-around items-center mr-10 gap-5">
+        <div className='h-100 flex flex-col items-center justify-between'>
+          <div className='w-10 h-10 bg-black text-white
+          rounded-full  text-4xl flex items-center justify-center'>+</div>
+          <div className='w-10 h-10 rounded-full bg-orange-300'></div>
+          <div className='w-10 h-10 rounded-full bg-pink-300'></div>
+          <div className='w-10 h-10 rounded-full bg-purple-300'></div>
+          <div className='w-10 h-10 rounded-full bg-blue-300'></div>
+          <div className='w-10 h-10 rounded-full bg-green-300'></div>
+        </div>
+        <div>
+          <div className='w-0.5 bg-gray-300 h-120'></div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+     <div>
+       <div className='text-4xl text-gray-700 mb-4 '>Notes</div>
+        <div className="r w-[80%] h-100 flex gap-7">
+        <div className="card w-80  h-80 bg-orange-300 rounded-3xl">
+        </div>
+         <div className="card w-80 h-80 bg-pink-300 rounded-3xl">
+        </div>
+         <div className="card  w-80 h-80 bg-purple-300 rounded-3xl">
+        </div>
+        
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+     </div>
+
+    </div>
   )
 }
 
