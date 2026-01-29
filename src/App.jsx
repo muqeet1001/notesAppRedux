@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import dot from "./assests/image.png"
 
 function App() {
   const now = new Date();
@@ -20,7 +21,12 @@ function App() {
       }),
     },
 
-  ])
+  ]);
+  const [selectedId, setSelectedId] = useState(null);
+  const [openMenuId , setopenMenuId] = useState(null);
+  
+
+
   return (
     <div className="main w-full h-screen flex">
 
@@ -63,9 +69,9 @@ function App() {
         >
           {notes.map((item) => {
             return (
-              <div
+              <div onClick={() => setSelectedId(item.id)}
                 key={item.id}
-                className="h-80 bg-orange-300 rounded-3xl snap-start p-5 flex flex-col"
+                className={`h-80 bg-orange-300 rounded-3xl snap-start p-5 flex flex-col ${selectedId === item.id ? "border-3 " : ""}`}
               >
                 {/* TITLE */}
                 <h2 className="text-xl font-semibold text-gray-900 mb-2 line-clamp-1">
@@ -80,9 +86,17 @@ function App() {
                 </div>
 
                 {/* DATE & TIME (FIXED BOTTOM) */}
-                <div className="flex items-center justify-between text-xs text-gray-700">
-                  <span>{item.date}</span>
-                  <span>{item.time}</span>
+                <div className=" flex items-center justify-between text-xs text-gray-700">
+                  <div className="time w- flex items-center justify-between gap-2">
+                    <span>{item.date}</span>
+                    <span>{item.time}</span>
+                  </div>
+                  <div className={`select w-10 ${selectedId === item.id ? "" : "hidden"}`} onClick={()=> setopenMenuId( openMenuId ===item.id ? null : item.id)}  >
+                    <img src={dot} alt="" />
+                    <div  className="bg-white w-30">
+                         <h1>edit</h1>
+                    </div>
+                  </div>
                 </div>
               </div>
 
